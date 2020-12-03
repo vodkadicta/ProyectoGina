@@ -2,9 +2,9 @@
 	class Database{
 		private $con;
 		private $dbhost="localhost";
-		private $dbuser="id15574334_user";
-		private $dbpass="QwertY12345+-";
-		private $dbname="id15574334_basededatos";
+		private $dbuser="root";
+		private $dbpass="";
+		private $dbname="prueba";
 		function __construct(){
 			$this->connect_db();
 		}
