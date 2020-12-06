@@ -1,0 +1,21 @@
+#divcontacto{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+   
+}
+#contact-form{
+    padding-left: 20px;
+}
+.raya{
+    margin-top: 5px;
+}
+.maps{
+    margin-top: 15px;    
+}
+.social{
+    justify-content: center;
+    margin-top: 9%;
+}
+
