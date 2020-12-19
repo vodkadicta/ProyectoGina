@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 90px; /* aquí la altura de la cabecera fija*/
+  margin: -90px 0 0; /* altura negativa de la cabecera fija */
+}
+
+body {
+    background: #ecf0f1;;
+    font-family: sans-serif;
+    padding-top: 200px;
+    transition: padding-top 0.5s ease;
+    font-size: none;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-image: url('FONDO.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    z-index: 100
+}
+
+header h1{
+    font-size: 42px;
+    color: white;
+    line-height: 230px;
+    font-weight: 300;
+    transition: all 0.3s ease;
+}
+
+header h1 i{
+    font-weight: bold;
+    text-transform: uppercase;
+    align-items: center;
+}
+
+header nav {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background: rgba(232, 63, 0, 0.8);
+}
+
+header nav a{
+    color: white;
+    display: inline-block;
+    padding: 10px 15px;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+header nav a:hover{
+    background: rgba(0,0,0,0.2);
+}
+
+h3 {
+    font-size: 34px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 2;
+    color: #2c3e50;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 2rem;
+    line-height: 2;
+    color: black;
+}
+
+.wraper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    margin: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+body.sticky-header {
+    padding-top: 100px;
+}
+
+body.sticky-header header{
+    height: 60px;
+    background: #e88300;
+}
+
+body.sticky-header header h1{
+    transform: scale(0,0);
+}
+
+.button2 {
+    width: 350;
+    display: block;
+    background: red;
+    padding: 20px 40px;
+    text-align: center;
+    margin: auto;
+    margin-top: 400px;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+button{
+    font-family: 'roboto';
+    background: -webkit-linear-gradient(top, red, gold);
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: radial-gradient(center center, ellipse, white 25%, peru 66%, black 96%);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;
+    display: block;
+    margin: 10px auto;
+    color: #fff;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 300%;
+    
+}
+
+table {
+    align-content: center;
+}
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
