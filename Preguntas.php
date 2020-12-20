@@ -1,3 +1,24 @@
+<?php
+//email
+if(isset($_POST["email"])){
+if(!empty($_POST["email"])){
+$email=$_POST["email"];
+$mensaje="gracias por suscribirte"."\r\n"."¿Aqui que deberia de ir?";
+$asunto="Gracias por suscribirte";
+$header="From: noreply@example.com"."\r\n";
+$header.="Reply-To: noreply@example.com"."\r\n";
+$header.="X-Mailer:PHP/".phpversion();
+$mail=@mail($email,$asunto,$mensaje,$header);
+if($mail){
+    echo "<h3>Hemos enviado tu mensaje</h3>";
+    header('location: indexadmin.php');
+}else{
+    echo "<h3>NO Hemos enviado tu mensaje</h3>";
+}
+}
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,6 +35,18 @@
     
     <!-- Link para font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://kit.fontawesome.com/62034752b0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <style>@import url ('https://fonts.googleapis.com/css2? family = Nerko + One & display = swap'); </style>
+    <link rel = "preconnect" href = "https://fonts.gstatic.com">
+    <link href = "https://fonts.googleapis.com/css2? family = Nerko + One & display = swap" rel = "hoja de estilo">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link  rel="icon"   href="img/favicon.png" type="image/png" />
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
@@ -35,21 +68,34 @@
         }
     </style>
     </head>
-    <body>
-       <h3 class="preguntasf">PREGUNTAS FRECUENTES</h3>
-       <h4 class="dudas">Si tienes dudas o necesitas consultar algo, puedes llamar al  <strong>+52 449 541 8969</strong></h4>
+    <body style="background-image: url('img/FONDO.jpg');background-size: cover;background-attachment: fixed;">
+        <!--Encabezado-->
+        <header style="background-image: url('img/FONDO.jpg');background-size: cover;background-attachment: fixed;">
+            <nav>
+                <a href="index.php">INICIO</a>
+                <a href="#">TIENDA</a>
+                <a href="Acerca%20de.php">ACERCA DE</a>
+                <a href="Contacto.php">CONTACTANOS</a>
+                <a href="Preguntas.php">AYUDA</a>
+                <a href="loginvista.php"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                <a href="#" style="align-content:stretch;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            </nav>
+        </header>   
+        <br><br><br><br><br><br>
+       <h3 class="preguntasf" style="color: white">PREGUNTAS FRECUENTES</h3>
+       <h4 class="dudas" style="color: white">Si tienes dudas o necesitas consultar algo, puedes llamar al  <strong>+52 449 541 8969</strong></h4>
         <div id="accordion" >
-          <div class="card">
+        <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
-                <button id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  ¿Proveen envíos internacionales?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button style="text-align: left; width:100px;" id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  ¿Proveen envíos internacionales?
                   <i id="flechabajo" class="fas fa-chevron-down"></i>
                 </button>
               </h5>
             </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" >
           <div class="card-body">
             Sí, el costo estándar del envío es de $60. Esto aplica en el pedido del cliente y tarda de 3 a 5 días hábiles en llegar.
             También se ofrece la posibilidad de que el envío sea gratuito solo si la compra es de más de $1000 en productos.
@@ -58,9 +104,9 @@
       </div>
       <div class="card">
         <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Si hay fallos, ¿puedo devolver la mercancía? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <h5 >
+            <button style="text-align: left; width:100px;" id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Si hay fallos, ¿puedo devolver la mercancía?    
                 <i id="flechabajo" class="fas fa-chevron-down"></i>
             </button>
           </h5>
@@ -74,8 +120,8 @@
       <div class="card">
         <div class="card-header" id="headingThree">
           <h5 class="mb-0">
-            <button id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                ¿Cuánto tiempo tardará en llegar mi pedido? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="text-align: left; width:100px;" id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                ¿Cuánto tiempo tardará en llegar mi pedido?
                 <i id="flechabajo" class="fas fa-chevron-down"></i>
             </button>
           </h5>
@@ -90,9 +136,8 @@
       <div class="card">
         <div class="card-header" id="headingThree">
           <h5 class="mb-0">
-            <button id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                ¿Qué tarjetas aceptan para hacer el pago? 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button style="text-align: left; width:100px;" id="preguntas" class="btn collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                ¿Qué tarjetas aceptan para hacer el pago?
                 <i id="flechabajo" class="fas fa-chevron-down"></i>
             </button>
           </h5>
@@ -103,19 +148,69 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div> 
+    <br><br><br><br><br><br> 
     
+    <!--Pie de Pagina-->
+    <div class="info-container">
+        <div class="info-main">
+            <h3>Contactanos</h3>
+            <p style="text-align:justify; color: black;">Para cualquier acaracion o duda visite nuestra seccion de ayuda o puede mandarnos un correo directo a  realsamday@gmail.com le responderemos enseguida y si desea obtener mas informacion pulse el boton de abajo. Le agradecemos de antemano su visita y su compra..."EL ESTILO NUNCA PASA DE MODA".</p>
+            <a href="Preguntas.php">Mas Informacion</a>
+        </div>
+    </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-main">
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                  <div class="form-group footer-columna">
+                    <h3>Suscríbete</h3>
+                    <label for="email" >Correo Eletronico</label>
+                    <input type="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" style="width: 300px;height: 40px;">
+                  </div>
+                  <button style="width: 100%;height: 40px;" type="submit" class="btn btn-primary">Enviar</button>
+                </form>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+                <div class="footer-columna">
+                    <h3>Dirección</h3>
+                    <span class="fa fa-map-marker"><p>244 Av. Lopez Mateos - Aguascalientes,Mexico</p></span>
+                    <span class="fa fa-phone"><p>(+52) 4951098973 </p></span>
+                    <span class="fa fa-envelope"><p>realsamday@gmail.com</p></span>
+                </div>
+
+                <div class="footer-columna">
+                    <h3>Sobre Nosotros</h3>
+                    <p style="text-align: justify;">Nuestro personal está altamente calificado en cada una de las aéreas de nuestra empresa esto nos ayuda a garantizar un trabajo profesional  y de alta calidad, así cumpliendo con las expectativas de nuestros clientes..</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copy-redes">
+            <div class="main-copy-redes">
+                <div class="footer-copy">
+                        &copy; 2020, Todos los derechos reservados - | SAMDAY |.
+                </div>
+                <div class="footer-redes">
+                    <a href="https://www.facebook.com/SamDay-107865224503474/" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube-play"></a>
+                    <a href="#" class="fa fa-github"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
     -->
   </body>
 </html>
